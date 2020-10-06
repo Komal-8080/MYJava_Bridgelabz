@@ -5,24 +5,25 @@ public class EmpWagePractice
 		System.out.println(" !! WELCOME TO EMPLOYEE WAGE COMPUTATION !!");
 	int attendence = (int)(Math.random() * 3);
 		System.out.println("Attendence status : " +attendence);
-	int full_time = 1;
-	int part_time = 2;
-	int Absent = 0;
-	int empWagePerHour = 20;
+	final int full_time = 1;
+	final int part_time = 2;
+	final int Absent = 0;
+	final int empWagePerHour = 20;
 	int empHrs = 0;
 	int empWage = 0;
 
-	if (attendence == full_time) {
+switch (attendence){
+	case full_time:
 		System.out.println("Employee Present");
-	empHrs = 8;
-	}
-	else if (attendence == part_time){
+		empHrs = 8;
+		break;
+	case part_time:
 		System.out.println("Employee Present");
-	empHrs = 4;
-	}
-	else {
+		empHrs = 4;
+		break;
+	default:
 		System.out.println("Employee Absent");
-	empHrs = 0;
+		empHrs = 0;
 	}
 	empWage = empHrs * empWagePerHour;
 		System.out.println("Employee Salary Per Day is : " + empWage);
