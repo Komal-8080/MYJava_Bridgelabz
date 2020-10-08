@@ -3,17 +3,26 @@ public class EmpWagePractice
 	public static final int full_time = 1;
 	public static final int part_time = 2;
 	public static final int Absent = 0;
-	//public static final int empWagePerHour;
-	//public static final int empWorkingDaysInMonth;
-	//public static final int MaxHours;
 
-	public static int computeEmpWage(String company, int empWagePerHour,int empWorkingDaysInMonth, int MaxHours)
+	private final String company;
+	private final int empWagePerHour;
+	private final int empWorkingDaysInMonth;
+	private final int maxHours;
+	private int wagePerMonth;
+
+	public EmpWagePractice(String company, int empWagePerHour, int empWorkingDaysInMonth, int maxHours)
 	{
-	int empHrs = 0;
-	int totalHours = 0;
-	int totalWorkingDays = 0;
+	this.company = company;
+	this.empWagePerHour = empWagePerHour;
+	this.empWorkingDaysInMonth = empWorkingDaysInMonth;
+	this.maxHours = maxHours;
+	}
 
-	while (totalHours <= MaxHours && totalWorkingDays < empWorkingDaysInMonth)
+	public void computeEmpWage()
+	{
+	int empHrs = 0, totalHours = 0, totalWorkingDays = 0;
+
+	while (totalHours <= maxHours && totalWorkingDays < empWorkingDaysInMonth)
 	{
 	totalWorkingDays++;
 	int attendence = (int)(Math.random() * 3);
@@ -35,17 +44,26 @@ public class EmpWagePractice
 	totalHours += empHrs;
 		System.out.println("Day: " + totalWorkingDays + " Employee Hours: " +empHrs);
 	}
-	int wagePerMonth = totalHours * empWagePerHour;
-		System.out.println("Total Wages Per Month: " +wagePerMonth);
-		System.out.println(" ");
-	return wagePerMonth;
+	wagePerMonth = totalHours * empWagePerHour ;
+	}
+	public String toString()
+	{
+	return "Total Emp Wage for company " +company+ " is "+wagePerMonth;
 	}
 	 public static void main(String[] args)
         {
                 System.out.println(" !! WELCOME TO EMPLOYEE WAGE COMPUTATION !!");
-		computeEmpWage("Wipro", 20, 20, 100);
-		computeEmpWage("IIFL", 30, 25, 150);
-		computeEmpWage("C&W", 25, 25, 100);
+
+		EmpWagePractice wipro = new EmpWagePractice("Wipro", 20, 20, 100);
+		EmpWagePractice iifl = new EmpWagePractice("IIFL", 30, 25, 150);
+                EmpWagePractice cnw = new EmpWagePractice("C&W", 25, 25, 100);
+
+		wipro.computeEmpWage();
+			System.out.println(wipro);
+		iifl.computeEmpWage();
+                        System.out.println(iifl);
+		cnw.computeEmpWage();
+                        System.out.println(cnw);
 	}
 
 }
