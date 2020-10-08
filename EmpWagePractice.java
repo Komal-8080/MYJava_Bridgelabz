@@ -3,11 +3,11 @@ public class EmpWagePractice
 	public static final int full_time = 1;
 	public static final int part_time = 2;
 	public static final int Absent = 0;
-	public static final int empWagePerHour = 20;
-	public static final int empWorkingDaysInMonth = 20;
-	public static final int MaxHours = 100;
+	//public static final int empWagePerHour;
+	//public static final int empWorkingDaysInMonth;
+	//public static final int MaxHours;
 
-	public static int computeEmpWage()
+	public static int computeEmpWage(String company, int empWagePerHour,int empWorkingDaysInMonth, int MaxHours)
 	{
 	int empHrs = 0;
 	int totalHours = 0;
@@ -37,12 +37,15 @@ public class EmpWagePractice
 	}
 	int wagePerMonth = totalHours * empWagePerHour;
 		System.out.println("Total Wages Per Month: " +wagePerMonth);
+		System.out.println(" ");
 	return wagePerMonth;
 	}
 	 public static void main(String[] args)
         {
                 System.out.println(" !! WELCOME TO EMPLOYEE WAGE COMPUTATION !!");
-		computeEmpWage();
+		computeEmpWage("Wipro", 20, 20, 100);
+		computeEmpWage("IIFL", 30, 25, 150);
+		computeEmpWage("C&W", 25, 25, 100);
 	}
 
 }
